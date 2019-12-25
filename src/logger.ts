@@ -12,19 +12,19 @@ export class Logger {
     this.timestamp = timestamp;
   }
 
-  public log(...messages: [string]) {
+  public log(...messages: string[]) {
     this.innerLogger(messages)('green', 'LOG');
   }
 
-  public error(...messages: [string]) {
+  public error(...messages: string[]) {
     this.innerLogger(messages)('red', 'ERROR');
   }
 
-  public info(...messages: [string]) {
+  public info(...messages: string[]) {
     this.innerLogger(messages)('blue', 'INFO');
   }
 
-  public debug(...messages: [string]) {
+  public debug(...messages: string[]) {
     this.innerLogger(messages)('white', 'DEBUG');
   }
 
@@ -32,7 +32,7 @@ export class Logger {
     return new Date().toLocaleTimeString().split(' ')[0];
   }
 
-  private innerLogger(messages: [string]) {
+  private innerLogger(messages: string[]) {
     return (color: loggerColors, functionName: string) => {
       let log: string = '';
 
